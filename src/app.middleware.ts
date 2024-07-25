@@ -5,13 +5,12 @@ import helmet from 'helmet';
 import passport from 'passport';
 
 export function middleware(app: INestApplication): INestApplication {
-  const isProduction = process.env.NODE_ENV === 'production';
+  const isProduction = true;
 
   app.use(compression());
   app.use(
     session({
-      // Requires 'store' setup for production
-      secret: 'tEsTeD',
+      secret: 'whswnsiw',
       resave: false,
       saveUninitialized: true,
       cookie: { secure: isProduction },
