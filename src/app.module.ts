@@ -1,27 +1,9 @@
-import { KnexModule } from 'nest-knexjs';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-
+import { CommonModule } from './common/common.module';
+import { ShorterModule } from './shorter/shorter.module';
 @Module({
-  imports: [
-    KnexModule.forRoot({
-      config: {
-        client: 'mysql',
-        version: '5.7',
-        useNullAsDefault: true,
-        connection: {
-          database: 'link',
-          user: 'root',
-          password: '',
-          host: 'localhost',
-          port: 3306,
-          ssl: false,
-        },
-      },
-    }),
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [CommonModule, ShorterModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
